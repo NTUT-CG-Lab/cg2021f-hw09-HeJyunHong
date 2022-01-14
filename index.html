@@ -288,10 +288,10 @@
                 let output = mesh_exporter.parse(mesh, {binary: true})
                 let blob = new Blob([output], {type:'application/octet-stream'})
 
-                let dlLink = document.createElement('a')
-                dlLink.href = URL.createObjectURL(blob)
-                dlLink.download = "output.stl";
-                dlLink.click()
+                let download_output = document.createElement('a')
+                download_output.href = URL.createObjectURL(blob)
+                download_output.download = "output.stl";
+                download_output.click()
             })
 
             // 閥值設定
@@ -304,8 +304,8 @@
 
             // 紋理設置
             elements[3].addEventListener('change', (event_lis) => {
-                let selectTextureIndex = event_lis.srcElement.value
-                modelView.textureOption = selectTextureIndex
+                let select = event_lis.srcElement.value
+                modelView.textureOption = select
                 modelView.updateRaw()
             })
 
